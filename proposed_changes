@@ -1,0 +1,29 @@
+Each of these parts of the pipeline represents an opportunity to introduce jank, so it's important to understand exactly what parts of the pipeline your code triggers.
+
+Sometimes you may hear the term "rasterize" used in conjunction with paint. This is because painting is actually two tasks: 1) creating a list of draw calls, and 2) filling in the pixels.
+
+The latter is called "rasterization" and so whenever you see paint records in DevTools, you should think of it as including rasterization. (In some architectures creating the list of draw calls and rasterizing are done in different threads, but that isn't something under developer control.)
+
+You won’t always necessarily touch every part of the pipeline on every frame. In fact, there are three ways the pipeline normally plays out for a given frame when you make a visual change, either with JavaScript, CSS, or Web Animations:
+
+1. JS / CSS > Style > Layout > Paint > Composite
+The full pixel pipeline
+
+If you change a “layout” property, so that’s one that changes an element’s geometry, like its width, height, or its position with left or top, the browser will have to check all the other elements and “reflow” the page. Any affected areas will need to be repainted, and the final painted elements will need to be composited back together.
+
+2. JS / CSS > Style > Paint > Composite
+The  pixel pipeline without layout.
+
+If you changed a “paint only” property, like a background image, text color, or shadows, in other words one that does not affect the layout of the page, then the browser skips layout, but it will still do paint.
+
+3. JS / CSS > Style > Composite
+The pixel pipeline without layout or paint.
+
+If you change a property that requires neither layout nor paint, and the browser jumps to just do compositing.
+
+This final version is the cheapest and most desirable for high pressure points in an app's lifecycle, like animations or scrolling.
+
+Note: If you want to know which of the three versions above changing any given CSS property will trigger head to CSS Triggers. And if you want the fast track to high performance animations, read the section on changing compositor-only properties.
+Performance is the art of avoiding work, and making any work you do as efficient as possible. In many cases it's about working with the browser, not against it. It’s worth bearing in mind that the work listed above in the pipeline differ in terms of computational cost; some tasks are more expensive than others!
+
+Let’s take a dive into the different parts of the pipeline. We’ll take a look at the common issues, as well how to diagnose and fix them.
