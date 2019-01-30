@@ -1,0 +1,108 @@
+https://gitcoin.co/issue/gitcoinco/web/3628/2217
+Jan 30, 2019, 4:47 PM CST
+Emulated Nexus 5X, Simulated Slow 4G network
+
+Performance
+Metrics
+First Contentful Paint
+2.7 s
+Speed Index
+11.1 s
+Time to Interactive
+17.2 s
+First Meaningful Paint
+5.0 s
+First CPU Idle
+14.2 s
+Estimated Input Latency
+1,200 ms
+Values are estimated and may vary.
+Opportunities
+These optimizations can speed up your page load.
+Opportunity
+Estimated Savings
+1
+Defer offscreen images
+4.05 s
+2
+Use video formats for animated content
+1.65 s
+3
+Serve images in next-gen formats
+1.5 s
+4
+Minify JavaScript
+0.9 s
+5
+Efficiently encode images
+0.75 s
+6
+Properly size images
+0.45 s
+7
+Eliminate render-blocking resources
+0.41 s
+8
+Defer unused CSS
+0.3 s
+9
+Preconnect to required origins
+0.3 s
+Diagnostics
+More information about the performance of your application.
+1
+Minimize main-thread work
+20.2 s
+2
+Ensure text remains visible during webfont load
+3
+Reduce JavaScript execution time
+9.7 s
+4
+Serve static assets with an efficient cache policy
+19 resources found
+5
+Minimize Critical Requests Depth
+67 chains found
+Passed audits
+8 audits
+86 Best Practices
+1
+Links to cross-origin destinations are unsafe
+2
+Displays images with incorrect aspect ratio
+Passed audits
+13 audits
+Progressive Web App
+These checks validate the aspects of a Progressive Web App. Learn more.
+Fast and reliable
+1
+Page load is not fast enough on mobile networks
+Your page loads too slowly and is not interactive within 10 seconds. Look at the opportunities and diagnostics in the "Performance" section to learn how to improve.
+Interactive at 17.2 s
+2
+Current page does not respond with a 200 when offline
+3
+start_url does not respond with a 200 when offline
+Timed out waiting for fetched start_url.
+Installable
+4
+Uses HTTPS
+5
+Does not register a service worker that controls page and start_url
+6
+Web app manifest does not meet the installability requirements
+Failures: Manifest does not have `short_name`.
+PWA Optimized
+7
+Redirects HTTP traffic to HTTPS
+8
+Configured for a custom splash screen
+9
+Sets an address-bar theme color
+10
+Content is sized correctly for the viewport
+11
+Has a <meta name="viewport"> tag with width or initial-scale
+12
+Contains some content when JavaScript is not availab
